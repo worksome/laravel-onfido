@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreValentin\Onfido\Tests;
+namespace Worksome\Onfido\Tests;
 
 use Onfido\Api\DefaultApi;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;

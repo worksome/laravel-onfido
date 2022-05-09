@@ -1,13 +1,12 @@
 {
-    "name": "andrevalentin/laravel-onfido",
+    "name": "worksome/laravel-onfido",
     "description": "A Laravel wrapper for the Onfido PHP client",
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "onfido", "identity"],
     "authors": [
         {
-            "name": "André Valentin",
-            "homepage": "https://github.com/andrevalentin"
+            "name": "André Valentin"
         }
     ],
     "require": {
@@ -21,21 +20,21 @@
     },
     "autoload": {
         "psr-4": {
-            "AndreValentin\\Onfido\\": "src/andrevalentin/Onfido"
+            "Worksome\\Onfido\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AndreValentin\\Onfido\\Tests\\": "tests/"
+            "Worksome\\Onfido\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "aliases": {
-                "Onfido": "AndreValentin\\Onfido\\Facades\\Onfido"
+                "Onfido": "Worksome\\Onfido\\Facades\\Onfido"
             },
             "providers": [
-                "AndreValentin\\Onfido\\OnfidoServiceProvider"
+                "Worksome\\Onfido\\OnfidoServiceProvider"
             ]
         }
     },

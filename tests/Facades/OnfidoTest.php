@@ -1,11 +1,11 @@
 <?php
 
-namespace AndreValentin\Onfido\Tests\Facades;
+namespace Worksome\Onfido\Tests\Facades;
 
 use Onfido\Api\DefaultApi;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
-use AndreValentin\Onfido\Facades\Onfido;
-use AndreValentin\Onfido\Tests\AbstractTestCase;
+use Worksome\Onfido\Facades\Onfido;
+use Worksome\Onfido\Tests\AbstractTestCase;
 
 class OnfidoTest extends AbstractTestCase
 {

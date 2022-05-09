@@ -6,21 +6,21 @@ The Laravel wrapper for the Onfido PHP API Client.
 
 Install using composer:
 ```
-composer require andrevalentin/laravel-onfido
+composer require worksome/laravel-onfido
 ```
 
 In app.php in your Laravel application add the Service Provider under the providers array:
 ```
 'providers' => [
     ...,
-    AndreValentin\Onfido\OnfidoServiceProvider::class,
+    Worksome\Onfido\OnfidoServiceProvider::class,
 ],
 ```
 Also add the Class Alias under the aliases array:
 ```
 'aliases' => [
     ...,
-    'Onfido'    => AndreValentin\Onfido\Facades\Onfido::class,
+    'Onfido'    => Worksome\Onfido\Facades\Onfido::class,
 ],
 ```
 Add a onfido.php config file in your config directory with the following content:

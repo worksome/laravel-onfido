@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreValentin\Onfido;
+namespace Worksome\Onfido;
 
 use Illuminate\Support\ServiceProvider;
 use Onfido\Api\DefaultApi;
@@ -50,7 +50,7 @@ class OnfidoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $config = __DIR__ . '/../../config/onfido.php';
+        $config = __DIR__ . '/../config/onfido.php';
 
         if ($this->app instanceof \Illuminate\Foundation\Application && $this->app->runningInConsole()) {
             $this->publishes([

@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreValentin\Onfido\Facades;
+namespace Worksome\Onfido\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Onfido\Api\DefaultApi;
@@ -9,7 +9,7 @@ use Onfido\Model\Check;
 
 /**
  * Class Onfido
- * @package AndreValentin\Onfido\Facades
+ * @package Worksome\Onfido\Facades
  *
  * @method static Applicant createApplicant(array $applicant)
  * @method static Check createCheck(array $check)
