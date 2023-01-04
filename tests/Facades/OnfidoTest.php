@@ -2,41 +2,26 @@
 
 namespace Worksome\Onfido\Tests\Facades;
 
-use Onfido\Api\DefaultApi;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
+use Onfido\Api\DefaultApi;
 use Worksome\Onfido\Facades\Onfido;
-use Worksome\Onfido\Tests\AbstractTestCase;
+use Worksome\Onfido\Tests\TestCase;
 
-class OnfidoTest extends AbstractTestCase
+class OnfidoTest extends TestCase
 {
     use FacadeTrait;
 
-    /**
-     * Get the facade accessor.
-     *
-     * @return string
-     */
-    protected function getFacadeAccessor()
+    protected function getFacadeAccessor(): string
     {
         return 'onfido';
     }
 
-    /**
-     * Get the facade class.
-     *
-     * @return string
-     */
-    protected function getFacadeClass()
+    protected function getFacadeClass(): string
     {
         return Onfido::class;
     }
 
-    /**
-     * Get the facade root.
-     *
-     * @return string
-     */
-    protected function getFacadeRoot()
+    protected function getFacadeRoot(): string
     {
         return DefaultApi::class;
     }
