@@ -1,63 +1,48 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Worksome\Onfido;
 
+use Illuminate\Container\Container;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\ServiceProvider;
 use Onfido\Api\DefaultApi;
 use Onfido\Configuration;
 
 class OnfidoServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if the laoding of the provider is defered.
-     *
-     * @var bool
-     */
-    protected $defer = true;
+    protected bool $defer = true;
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
-        $config = new Configuration();
-        $config->setApiKey('Authorization', 'token=' . config('onfido.api_key'));
-        $config->setApiKeyPrefix('Authorization', 'Token');
+        $this->app->singleton('onfido', function (Container $app) {
+            $token = $app->make(Repository::class)->get('onfido.api_key');
 
-        $this->app->singleton('onfido', function ($app) use ($config) {
+            $config = (new Configuration())
+                ->setApiKey('Authorization', "token={$token}")
+                ->setApiKeyPrefix('Authorization', 'Token');
+
             return new DefaultApi(null, $config);
         });
 
         $this->app->alias('onfido', DefaultApi::class);
     }
 
-    /**
-     * Get the service provided by the provider.
-     *
-     * @return array|string
-     */
-    public function provides()
+    /** @return array<string> */
+    public function provides(): array
     {
         return ['onfido', DefaultApi::class];
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
         $config = __DIR__ . '/../config/onfido.php';
 
-        if ($this->app instanceof \Illuminate\Foundation\Application && $this->app->runningInConsole()) {
+        if ($this->app->runningInConsole()) {
             $this->publishes([
-                $config => config_path('onfido.php'),
+                $config => $this->app->configPath('onfido.php'),
             ], 'config');
-        } elseif ($this->app instanceof \Illuminate\Foundation\Application === false) {
-            $this->app->configure('onfido');
         }
 
         $this->mergeConfigFrom($config, 'onfido');

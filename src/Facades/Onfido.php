@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Worksome\Onfido\Facades;
 
 use Illuminate\Support\Facades\Facade;
@@ -9,16 +11,15 @@ use Onfido\Model\Check;
 
 /**
  * Class Onfido
- * @package Worksome\Onfido\Facades
  *
  * @method static Applicant createApplicant(array $applicant)
- * @method static Check createCheck(array $check)
+ * @method static Check     createCheck(array $check)
  *
  * @see DefaultApi
  */
 class Onfido extends Facade
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'onfido';
     }
