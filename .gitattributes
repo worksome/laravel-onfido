@@ -1,2 +1,15 @@
-docker/ export-ignore
-docker-compose.yml export-ignore
+* text=auto
+
+# Path-based git attributes
+# https://git-scm.com/docs/gitattributes
+
+# Ignore all test and documentation with "export-ignore".
+/.editorconfig      export-ignore
+/.gitattributes     export-ignore
+/.github            export-ignore
+/.gitignore         export-ignore
+/docker             export-ignore
+/docker-compose.yml export-ignore
+/phpunit.xml        export-ignore
+/rector.php         export-ignore
+/tests              export-ignore
