@@ -5,38 +5,22 @@ The Laravel wrapper for the Onfido PHP API Client.
 ## Installation
 
 Install using composer:
-```
+
+```shell
 composer require worksome/laravel-onfido
 ```
 
-In app.php in your Laravel application add the Service Provider under the providers array:
-```
-'providers' => [
-    ...,
-    Worksome\Onfido\OnfidoServiceProvider::class,
-],
-```
-Also add the Class Alias under the aliases array:
-```
-'aliases' => [
-    ...,
-    'Onfido'    => Worksome\Onfido\Facades\Onfido::class,
-],
-```
-Add a onfido.php config file in your config directory with the following content:
-```
-<?php
+Publish the configuration file with the following command:
 
-return [
-    "api_key" => env("ONFIDO_API_KEY", "api_testing.default"),
-];
+```shell
+php artisan vendor:publish --provider "Worksome\Onfido\OnfidoServiceProvider"
 ```
 
 ## Configuration
 
 Remember to add your Onfido API key to your `.env` file.
 
-```
+```dotenv
 ONFIDO_API_KEY=api_sandbox.ABC...
 ```
 
@@ -45,10 +29,11 @@ ONFIDO_API_KEY=api_sandbox.ABC...
 I would always encourage anyone to use the official PHP package as reference, and this is simply a Laravel wrapper.
 However, I will provide an example on how to create an applicant.
 
-Remeber to import the Onfido Facade, by adding `use Onfido;` at the top of your file.
+Remember to import the Onfido facade, by adding `use Worksome\Onfido\Facades\Onfido;` at the top of your file.
 
 To create an applicant and send a check:
-```
+
+```php
 $applicant = Onfido::createApplicant([
     'first_name' => 'John',
     'last_name' => 'Doe',
@@ -66,7 +51,7 @@ The above is all that is required to create an applicant and send the applicant 
 
 You can then consult the results of the check as an array:
 
-```
+```php
 $applicant['id']
 $onfido_check['id']
 $onfido_check['status']
