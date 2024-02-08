@@ -6,10 +6,8 @@ namespace Worksome\Onfido\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Onfido\Api\DefaultApi;
-use Onfido\Model\Applicant;
 use Onfido\Model\ApplicantRequest;
 use Onfido\Model\ApplicantResponse;
-use Onfido\Model\Check;
 use Onfido\Model\CheckRequest;
 use Onfido\Model\CheckResponse;
 
