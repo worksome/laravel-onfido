@@ -5,31 +5,29 @@ declare(strict_types=1);
 namespace Worksome\Onfido;
 
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Config\Repository as ConfigRepository;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use Onfido\Api\DefaultApi;
 use Onfido\Configuration;
 
-class OnfidoServiceProvider extends ServiceProvider
+class OnfidoServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    protected bool $defer = true;
-
     public function register(): void
     {
         $this->app->singleton('onfido', function (Container $app) {
-            $token = $app->make(Repository::class)->get('onfido.api_key');
+            $token = $app->make(ConfigRepository::class)->get('onfido.api_key');
 
-            $config = (new Configuration())
-                ->setApiKey('Authorization', "token={$token}")
-                ->setApiKeyPrefix('Authorization', 'Token');
+            $config = Configuration::getDefaultConfiguration()
+                ->setApiToken($token);
 
-            return new DefaultApi(null, $config);
+            return new DefaultApi(config: $config);
         });
 
         $this->app->alias('onfido', DefaultApi::class);
     }
 
-    /** @return array<string> */
+    /** @return array<int, string> */
     public function provides(): array
     {
         return ['onfido', DefaultApi::class];
