@@ -34,13 +34,17 @@ Remember to import the Onfido facade, by adding `use Worksome\Onfido\Facades\Onf
 To create an applicant and send a check:
 
 ```php
-$applicant = Onfido::createApplicant(new \Onfido\Model\ApplicantBuilder([
+use Onfido\Model\ApplicantBuilder;
+use Onfido\Model\CheckBuilder;
+use Worksome\Onfido\Facades\Onfido;
+
+$applicant = Onfido::createApplicant(new ApplicantBuilder([
     'first_name' => 'John',
     'last_name' => 'Doe',
     'email' => 'johndoe@example.org',
 ]));
 
-$onfido_check = Onfido::createCheck(new \Onfido\Model\CheckBuilder([
+$onfidoCheck = Onfido::createCheck(new CheckBuilder([
     'applicant_id' => $applicant['id'],
     'report_names' => ['right_to_work'],
     'applicant_provides_data' => true,
@@ -49,13 +53,20 @@ $onfido_check = Onfido::createCheck(new \Onfido\Model\CheckBuilder([
 
 The above is all that is required to create an applicant and send the applicant a right to work check via Onfido.
 
-You can then consult the results of the check as an arrayable:
+You can then consult the results of the applicant or check:
 
 ```php
-$applicant['id']
-$onfido_check['id']
-$onfido_check['status']
-$onfido_check['form_uri']
+/** @var \Onfido\Model\ApplicantResponse $applicant */
+$applicant->getId();
+
+/** @var \Onfido\Model\CheckResponse $onfidoCheck */
+$onfidoCheck->getId();
+
+// The responses can also be accessed as an arrayable.
+$applicant['id'];
+$onfidoCheck['id'];
+$onfidoCheck['status'];
+$onfidoCheck['form_uri'];
 ```
 
 To see all possible return data check the [official PHP package documentation](https://github.com/onfido/onfido-php).
