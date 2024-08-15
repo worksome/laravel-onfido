@@ -6,21 +6,20 @@ namespace Worksome\Onfido\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Onfido\Api\DefaultApi;
-use Onfido\Model\ApplicantRequest;
+use Onfido\Model\ApplicantBuilder;
 use Onfido\Model\ApplicantResponse;
-use Onfido\Model\CheckRequest;
+use Onfido\Model\CheckBuilder;
 use Onfido\Model\CheckResponse;
 
 /**
- * Class Onfido
- *
- * @method static ApplicantResponse createApplicant(ApplicantRequest $applicant)
- * @method static CheckResponse     createCheck(CheckRequest $check)
+ * @method static ApplicantResponse createApplicant(ApplicantBuilder $applicant_builder)
+ * @method static CheckResponse     createCheck(CheckBuilder $check_builder)
  *
  * @see DefaultApi
  */
 class Onfido extends Facade
 {
+    /** {@inheritdoc} */
     protected static function getFacadeAccessor(): string
     {
         return 'onfido';
