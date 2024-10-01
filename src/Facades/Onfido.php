@@ -6,14 +6,14 @@ namespace Worksome\Onfido\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Onfido\Api\DefaultApi;
+use Onfido\Model\Applicant;
 use Onfido\Model\ApplicantBuilder;
-use Onfido\Model\ApplicantResponse;
+use Onfido\Model\Check;
 use Onfido\Model\CheckBuilder;
-use Onfido\Model\CheckResponse;
 
 /**
- * @method static ApplicantResponse createApplicant(ApplicantBuilder $applicant_builder)
- * @method static CheckResponse     createCheck(CheckBuilder $check_builder)
+ * @method static Applicant createApplicant(ApplicantBuilder $applicant_builder)
+ * @method static Check     createCheck(CheckBuilder $check_builder)
  *
  * @see DefaultApi
  */
