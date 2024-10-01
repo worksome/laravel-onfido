@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "onfido/onfido-php": "^7.3",
+        "onfido/onfido-php": "^7.5",
         "illuminate/support": "^10.0 || ^11.0"
     },
     "require-dev": {
