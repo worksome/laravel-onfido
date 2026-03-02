@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.4",
         "illuminate/support": "^12.0 || ^13.0",
-        "onfido/onfido-php": "^7.5"
+        "onfido/onfido-php": "^7.5 || ^8.0 || ^9.0 || ^10.0"
     },
     "require-dev": {
         "larastan/larastan": "^3.9",
