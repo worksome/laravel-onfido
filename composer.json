@@ -10,15 +10,15 @@
     ],
     "require": {
         "php": "^8.4",
-        "illuminate/support": "^12.0 || ^13.0",
+        "illuminate/support": "^13.0",
         "onfido/onfido-php": "^7.5 || ^8.0 || ^9.0 || ^10.0"
     },
     "require-dev": {
         "larastan/larastan": "^3.10",
         "nunomaduro/collision": "^8.1.1",
-        "orchestra/testbench": "^10.1 || ^11.0",
-        "pestphp/pest": "^4.4",
-        "pestphp/pest-plugin-laravel": "^4.1",
+        "orchestra/testbench": "^11.3",
+        "pestphp/pest": "^5.3",
+        "pestphp/pest-plugin-laravel": "^5.0",
         "worksome/coding-style": "^6.0",
         "canvural/larastan-strict-rules": "^3.0"
     },
